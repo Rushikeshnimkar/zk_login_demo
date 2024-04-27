@@ -177,6 +177,7 @@ export default function Page() {
     function getEphemeralKeyPair() {
         const userKeyData: UserKeyData = JSON.parse(localStorage.getItem("userKeyData")!);
         let ephemeralKeyPairArray = Uint8Array.from(Array.from(fromB64(userKeyData.ephemeralPrivateKey!)));
+        console.log("keyvalue",userKeyData.ephemeralPrivateKey )
         const ephemeralKeyPair = Ed25519Keypair.fromSecretKey(ephemeralKeyPairArray);
         return {userKeyData, ephemeralKeyPair};
     }
